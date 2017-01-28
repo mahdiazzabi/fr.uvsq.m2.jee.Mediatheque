@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/templateUser.xhtml">
+
+	<ui:define name="content">
+
+
+
+		<p:growl id="growl" showDetail="true" sticky="true" />
+
+		<p:panel header="Log in">
+			<h:form>
+				<p:messages id="msgs" />
+				<h:panelGrid columns="1" cellpadding="5">
+					<p:outputLabel for="lastname" value="Nom :" />
+					<p:inputText id="lastname" value="#{loginControl.newUser.lastName}"
+						required="true">
+					</p:inputText>
+
+					<p:outputLabel for="firstname" value="Prénom :" />
+					<p:inputText id="firstname"
+						value="#{loginControl.newUser.firstName}" required="true">
+					</p:inputText>
+					<p:outputLabel for="birthdate" value="Date de naissance :" />
+					<p:inputText id="birthdate"
+						value="#{loginControl.newUser.birthDate}" required="true">
+					</p:inputText>
+					<p:outputLabel for="tel" value="Numéro de téléphone :" />
+					<p:inputText id="tel" value="#{loginControl.newUser.tel}"
+						required="true">
+					</p:inputText>
+					<p:outputLabel for="mail" value="Adresse email :" />
+					<p:inputText id="mail" value="#{loginControl.newUser.mail}"
+						required="true">
+					</p:inputText>
+					<p:outputLabel for="pwd" value="Mot de passe :" />
+					<p:inputText id="pwd" value="#{loginControl.newUser.pwd}"
+						required="true">
+					</p:inputText>
+					
+
+					<p:commandButton action="#{loginControl.signUp()}"
+						value="S'inscrire" update="msgs" icon="ui-icon-check" />
+				</h:panelGrid>
+				
+
+			</h:form>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+</html>

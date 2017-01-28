@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/templateUser.xhtml">
+
+	<ui:define name="content">
+
+		<h:form>
+			<p:dataScroller value="#{mediasController.list}" var="Media"
+				chunkSize="10">
+				<f:facet name="header">
+            Bienvenue à votre Mediatheque
+        </f:facet>
+
+				<h:panelGrid columns="1" style="width:100%" columnClasses="detail">
+
+					<p:outputPanel>
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Titre" />
+							<h:outputText value="#{Media.id}" style="font-weight: bold" />
+
+							<h:outputText value="Auteur" />
+							<h:outputText value="#{Media.titre}" style="font-weight: bold" />
+
+							<h:outputText value="Année" />
+							<h:outputText value="#{Media.titre}" style="font-weight: bold" />
+							<p:commandButton action="#{mediasController.chargerForTest()}"
+								value="Ajouter au panier" icon="ui-icon-check" />
+						</h:panelGrid>
+					</p:outputPanel>
+				</h:panelGrid>
+			</p:dataScroller>
+			<p:commandButton action="#{mediasController.chargerForTest()}"
+				value="Charger" icon="ui-icon-check" />
+
+		</h:form>
+
+
+
+
+	</ui:define>
+
+</ui:composition>
+</html>
