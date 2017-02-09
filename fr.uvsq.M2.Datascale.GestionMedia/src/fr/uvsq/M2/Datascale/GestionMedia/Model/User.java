@@ -1,15 +1,15 @@
 package fr.uvsq.M2.Datascale.GestionMedia.Model;
 
+import java.util.Date;
+
 public class User {
 	
 	private String lastName ;
 	private String firstName ;
-	private String birthDate ;
+	private Date birthDate ;
 	private String tel ;
 	private String mail ;
 	private String pwd ;
-	
-	
 	
 	
 	public String getLastName() {
@@ -24,10 +24,10 @@ public class User {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getTel() {

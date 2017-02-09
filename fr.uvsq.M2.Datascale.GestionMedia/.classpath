@@ -20,5 +20,13 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="C:/Users/mehdi/Downloads/primefaces-5.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/eclipselink-2.4.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/hibernate3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/javassist.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/javax.ejb-3.1.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jta.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

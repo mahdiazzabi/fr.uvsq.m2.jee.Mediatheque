@@ -8,14 +8,15 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-<ui:composition template="/template/templateUser.xhtml">
+<ui:composition template="/template/templateExterne.xhtml">
 
 	<ui:define name="content">
 
 
 		
 		<p:growl id="growl" showDetail="true" sticky="true"  />
-
+		<a href="signup.xhtml">S'inscrire</a>
+		<br/><br/>
 		<p:panel header="Log in" >
 			<h:form>
 				<p:messages id="msgs" />
@@ -25,8 +26,8 @@
 					</p:inputText>
 				
 					<p:outputLabel for="pwd" value="Mot de passe :" />
-					<p:inputText id="pwd" value="#{loginControl.password}" required="true" >
-					</p:inputText>
+					<p:password id="pwd" value="#{loginControl.password}" required="true" >
+					</p:password>
 				</h:panelGrid>
 				<p:commandButton action="#{loginControl.doLogin()}"
 					value="Se connecter" update="msgs" icon="ui-icon-check" />

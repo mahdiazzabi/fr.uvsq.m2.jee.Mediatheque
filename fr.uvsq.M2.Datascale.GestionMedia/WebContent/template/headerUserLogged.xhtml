@@ -8,8 +8,30 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <div id="header">
+	<div>
+		<div class="logo">
+			<a href="transaction.jsf"></a>
+		</div>
+		<ul id="navigation">
+			<li><a href="../user/index.xhtml">Accueil</a></li>
+			<li><a href="../user/updateInfo.xhtml">Mon compte</a></li>
+			<li><a href="">Mon historique</a></li>
+			<li><a href="../user/panier.xhtml" >Mon panier(#{mediasController.panier.sizePanier()})</a></li>
 
-Header...
+		</ul>
+		<div STYLE="float: right;">
+			<h:form>
+				<ul id="navigation">
+					<li><p:commandLink id="nonAjax"
+							action="#{loginControl.doLogout()}" ajax="false">
+							<h:outputText value="Se déconnecter" />
+						</p:commandLink></li>
+
+				</ul>
+			</h:form>
+		</div>
+	</div>
+
 
 </div>
 

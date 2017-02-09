@@ -6,51 +6,52 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 import fr.uvsq.M2.Datascale.GestionMedia.Model.User;
 
 @ManagedBean
 @SessionScoped
 public class LoginControl {
-	
-	private String username ;
-	private String password ;
-	private User newUser = new User() ; 
-	private User currentUser ;
-	
-	//juste pour test 
+
+	private String username;
+	private String password;
+	private User newUser = new User();
+	private User currentUser;
+
+	// Controle inscription
 	public String signUp() {
 		String redirecTo = "";
+
+		System.err.println(currentUser.getFirstName() + currentUser.getLastName());
 		
-		//Controle et validation à completer par la communication de la couche métier
-		
-		//connecter le nouveau utilisateur 
-		currentUser = newUser ;
-		
-		//redirection vers la page principale index
-		HttpSession session = (HttpSession) FacesContext
-				.getCurrentInstance().getExternalContext()
-				.getSession(false);
-		session.setAttribute("currentUser", currentUser);
-		redirecTo = "/user/index.jsf?faces-redirect=true";
-		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null, new FacesMessage("Successful",
-				"Bienvenue : " + currentUser.getFirstName()));
-		
-		return redirecTo ;
-	}
+
+		redirecTo = "/login.jsf?faces-redirect=true";
 	
-	//Juste pour test à faire communiquer avec la couche metier
-	public String doLogin(){
+		return redirecTo;
+	}
+	public String updateInfo() {
+		String redirecTo = "";
+
+		// ici inscription
+		System.err.println(newUser.getFirstName() + newUser.getLastName());
+		// connecter le nouveau utilisateur
 		
+		// redirection vers la page login
+
+		redirecTo = "/user/index.jsf?faces-redirect=true";
+	
+		return redirecTo;
+	}
+	// connexion
+	public String doLogin() {
+
 		System.err.println(username);
 		System.err.println(password);
 		String redirecTo = "";
-		
-		if (username.equals("mehdi") && password.equals("mehdi") ){
-			
-			currentUser= new User(); //à charger de la base via la couche metier
+
+		if (true) {
+
+			currentUser = new User(); // à charger de la base via la couche
+										// metier
 			currentUser.setFirstName(username);
 			HttpSession session = (HttpSession) FacesContext
 					.getCurrentInstance().getExternalContext()
@@ -60,23 +61,44 @@ public class LoginControl {
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.addMessage(null, new FacesMessage("Successful",
 					"Bonjour : " + currentUser.getFirstName()));
-			
+
 		}
 		return redirecTo;
 	}
+
+	public String doLogout() {
+		
+		((HttpSession) FacesContext.getCurrentInstance().getExternalContext()
+				.getSession(true)).invalidate();
+		return "/login.jsf?faces-redirect=true";
+
+		
+
+	}
 	
+
+	public User getCurrentUser() {
+		return currentUser;
+	}
+	public void setCurrentUser(User currentUser) {
+		this.currentUser = currentUser;
+	}
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
-	} 
+	}
+
 	public User getNewUser() {
 		return newUser;
 	}
@@ -84,6 +106,5 @@ public class LoginControl {
 	public void setNewUser(User newUser) {
 		this.newUser = newUser;
 	}
-
 
 }

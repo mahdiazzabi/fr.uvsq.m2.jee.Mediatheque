@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/templateUser.xhtml">
+
+	<ui:define name="content">
+
+		<h:outputLabel rendered="#{mediasController.ControlNotEmptyPanier()}">        Votre panier est vide </h:outputLabel>
+		<h:form>
+			<p:dataScroller value="#{mediasController.panier.medias}" var="Media"
+				chunkSize="10" rendered="#{mediasController.ControlEmptyPanier()}">
+				<f:facet name="header">
+           			 Mon Panier
+                    </f:facet>
+				<h:panelGrid columns="6" style="width:50%"
+					columnClasses="logo,detail">
+					<img src="../images/livres/book.png" />
+
+					<p:outputPanel>
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Id:" />
+							<h:outputText value="#{Media.id}" style="font-weight: bold" />
+
+							<h:outputText value="Year:" />
+							<h:outputText value="#{Media.id}" style="font-weight: bold" />
+
+							<h:outputText value="Color:" />
+							<h:outputText value="#{Media.id}" style="font-weight: bold" />
+
+
+
+						</h:panelGrid>
+
+					</p:outputPanel>
+					<br />
+					<br />
+					<br />
+					<p:commandButton
+						onclick="if (! confirm('voulez vous retirer cet article ?')) return false"
+						action="#{mediasController.removeMediaFromPanier()}"
+						value="Retirer du panier" icon="ui-icon-check">
+						<f:setPropertyActionListener value="#{Media}"
+							target="#{mediasController.selectedMedia}" />
+					</p:commandButton>
+				</h:panelGrid>
+			</p:dataScroller>
+			<p:commandButton
+				onclick="if (! confirm('voulez vous confirmer votre selection ?')) return false"
+				action="#{mediasController.validerPanier()}"
+				value="Valider ma selection" icon="ui-icon-check"
+				rendered="#{mediasController.ControlEmptyPanier()}">
+
+			</p:commandButton>
+		</h:form>
+	</ui:define>
+
+	<br />
+
+
+</ui:composition>
+</html>

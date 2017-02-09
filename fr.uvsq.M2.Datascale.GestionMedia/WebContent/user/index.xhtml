@@ -11,37 +11,74 @@
 
 	<ui:define name="content">
 
-		<h:form>
-			<p:dataScroller value="#{mediasController.list}" var="Media"
-				chunkSize="10">
-				<f:facet name="header">
-            Bienvenue à votre Mediatheque
-        </f:facet>
 
-				<h:panelGrid columns="1" style="width:100%" columnClasses="detail">
 
-					<p:outputPanel>
-						<h:panelGrid columns="2" cellpadding="5">
-							<h:outputText value="Titre" />
-							<h:outputText value="#{Media.id}" style="font-weight: bold" />
+		<h:form id="form">
+			<p:growl id="growl" showDetail="true" sticky="false" />
+			<p:dataGrid var="Media" value="#{mediasController.loadMedias()}"
+				columns="3" layout="grid" rows="12" paginator="true" id="Media"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="6,12,16">
 
-							<h:outputText value="Auteur" />
-							<h:outputText value="#{Media.titre}" style="font-weight: bold" />
+				<br />
+				<p:panel header="#{Media.id}" style="text-align:center">
 
-							<h:outputText value="Année" />
-							<h:outputText value="#{Media.titre}" style="font-weight: bold" />
-							<p:commandButton action="#{mediasController.chargerForTest()}"
-								value="Ajouter au panier" icon="ui-icon-check" />
-						</h:panelGrid>
-					</p:outputPanel>
-				</h:panelGrid>
-			</p:dataScroller>
-			<p:commandButton action="#{mediasController.chargerForTest()}"
-				value="Charger" icon="ui-icon-check" />
+					<h:panelGrid columns="1" style="width:100%">
+						<img src="../images/livres/book.png" />
+
+						<h:outputText value="#{Media.titre}" />
+
+
+						<p:commandLink update=":form:MediaDetail"
+							oncomplete="PF('MediaDialog').show()" title="View Detail">
+							<h:outputText styleClass="ui-icon ui-icon-search"
+								style="margin:0 auto;" />
+							<f:setPropertyActionListener value="#{Media}"
+								target="#{mediasController.selectedMedia}" />
+						</p:commandLink>
+						<p:commandButton action="#{mediasController.addMediaToPanier()}"
+							value="Ajouter au panier" icon="ui-icon-check"
+							update=":form:growl">
+							<f:setPropertyActionListener value="#{Media}"
+								target="#{mediasController.selectedMedia}" />
+						</p:commandButton>
+
+
+					</h:panelGrid>
+				</p:panel>
+
+			</p:dataGrid>
+
+			<p:dialog header="Media Info" widgetVar="MediaDialog" modal="true"
+				showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="MediaDetail" style="text-align:center;">
+					<p:panelGrid columns="2"
+						rendered="#{not empty mediasController.selectedMedia}"
+						columnClasses="label,value">
+						<f:facet name="header">
+							<img src="../images/livres/book.png" />
+						</f:facet>
+
+						<h:outputText value="Id:" />
+						<h:outputText value="#{mediasController.selectedMedia.id}" />
+
+						<h:outputText value="Year" />
+						<h:outputText value="#{mediasController.selectedMedia.titre}" />
+
+						<h:outputText value="Color:" />
+						<h:outputText value="#{mediasController.selectedMedia.titre}" />
+
+						<h:outputText value="Price" />
+						<h:outputText value="#{mediasController.selectedMedia.titre}" />
+
+
+					</p:panelGrid>
+
+
+				</p:outputPanel>
+			</p:dialog>
 
 		</h:form>
-
-
 
 
 	</ui:define>
