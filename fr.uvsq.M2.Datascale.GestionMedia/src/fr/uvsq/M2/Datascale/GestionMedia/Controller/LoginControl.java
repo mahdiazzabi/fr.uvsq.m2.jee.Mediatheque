@@ -6,11 +6,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-import fr.uvsq.M2.Datascale.GestionMedia.Model.Auteur;
 import fr.uvsq.M2.Datascale.GestionMedia.Model.Personne;
-import fr.uvsq.M2.Datascale.GestionMedia.Model.User;
-import fr.uvsq.M2.Datascale.GestionMedia.Services.AuteurServices;
-import fr.uvsq.M2.Datascale.GestionMedia.Services.AuteurServicesImpl;
 import fr.uvsq.M2.Datascale.GestionMedia.Services.PersonneServices;
 import fr.uvsq.M2.Datascale.GestionMedia.Services.PersonneServicesImpl;
 
@@ -20,7 +16,7 @@ public class LoginControl {
 
 	private String username;
 	private String password;
-	private User newUser = new User();
+	private Personne newUser = new Personne();
 	private Personne currentUser;
 
 	private PersonneServices personneServices = new PersonneServicesImpl();
@@ -28,10 +24,12 @@ public class LoginControl {
 	// Controle inscription
 	public String signUp() {
 		String redirecTo = "";
-
+		
+		newUser= personneServices.doSignUp(newUser);
+		
 		// System.err.println(currentUser.getFirstName() +
 		// currentUser.getLastName());
-
+		
 		redirecTo = "/login.jsf?faces-redirect=true";
 
 		return redirecTo;
@@ -41,7 +39,6 @@ public class LoginControl {
 		String redirecTo = "";
 
 		// ici inscription
-		System.err.println(newUser.getFirstName() + newUser.getLastName());
 		// connecter le nouveau utilisateur
 
 		// redirection vers la page login
@@ -55,6 +52,7 @@ public class LoginControl {
 	public String doLogin() {
 
 		currentUser = personneServices.doLogin(username, password);
+		System.err.println(currentUser.getNom());
 		String redirecTo = "";
 
 		if (currentUser == null) {
@@ -109,12 +107,20 @@ public class LoginControl {
 		this.password = password;
 	}
 
-	public User getNewUser() {
+	public Personne getNewUser() {
 		return newUser;
 	}
 
-	public void setNewUser(User newUser) {
+	public void setNewUser(Personne newUser) {
 		this.newUser = newUser;
+	}
+
+	public Personne getCurrentUser() {
+		return currentUser;
+	}
+
+	public void setCurrentUser(Personne currentUser) {
+		this.currentUser = currentUser;
 	}
 
 }

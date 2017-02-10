@@ -91,11 +91,7 @@
     animation: moveFromBottom 500ms ease;
 }
 
-body {
-	background-color: #fff;
-	font-family: 'OpenSans';
-	margin: 0;
-}
+
 img {
 	border: 0;
 }
@@ -154,8 +150,17 @@ img {
 	margin-right: 20px;
 }
 
+body {
+
+background:url(http://www.businessnewsdaily.com/images/i/000/007/874/original/free-business-plan-templates.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
 #header .logo2 a {
-	background: url(../images/Personal.png) no-repeat center top;
+	background: url(../images/media.jpg) no-repeat center top;
 	color: #000;
 	display: block;
 	font: 15px/30px 'Play';

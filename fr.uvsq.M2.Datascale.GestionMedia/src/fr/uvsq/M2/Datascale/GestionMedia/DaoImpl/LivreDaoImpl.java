@@ -22,7 +22,7 @@ public class LivreDaoImpl implements LivreDao {
 			Transaction tx =null;
 						try{
 				tx =session.beginTransaction();
-				Livre livre =  (Livre) session.save(obj);
+				session.save(obj);
 				tx.commit();
 			}
 			catch(HibernateException e)

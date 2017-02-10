@@ -91,6 +91,27 @@ public class PersonneDaoImpl implements PersonneDao {
 		}
 		 return null;
 	}
+
+	@Override
+	public Personne doSignUp(Personne personne) {
+
+		{
+
+			Transaction tx =null;
+						try{
+				tx =session.beginTransaction();
+				personne.setNiveau("user");
+				session.save(personne);
+				tx.commit();
+			}
+			catch(HibernateException e)
+			{
+				e.printStackTrace();
+				tx.rollback();
+			
+			}}
+		return personne;
+	}
 	
 	
 	

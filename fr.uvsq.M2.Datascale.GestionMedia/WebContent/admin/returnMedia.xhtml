@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/templateUser.xhtml">
+
+	<ui:define name="content">
+
+
+		
+		<p:growl id="growl" showDetail="true" sticky="true"  />
+
+		<p:panel header="Rendre Media" >
+			<h:form>
+				<p:messages id="msgs" />
+				<h:panelGrid columns="1" cellpadding="5">
+				 
+				 <p:outputLabel for="lastName" value="Id user :" />
+					<p:inputText id="lastName" value="#{mediasController.user.personneID}" required="true" size="20" maxlength="20"></p:inputText>
+				
+				 <p:outputLabel for="titre" value="Titre" />
+				<p:inputText id="titre" value="#{mediasController.mediaArendre.code}" required="true" size="20" maxlength="20"></p:inputText>
+				
+				</h:panelGrid>
+				
+				<p:commandButton action="#{mediasController.returnMedia()}" value="Rendre" update="msgs" icon="ui-icon-check" />
+
+				<h:panelGrid columns="3" cellpadding="10">
+
+				</h:panelGrid>
+
+			</h:form>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -21,7 +21,7 @@
 				rowsPerPageTemplate="6,12,16">
 
 				<br />
-				<p:panel header="#{Media.id}" style="text-align:center">
+				<p:panel header="#{Media.code}" style="text-align:center">
 
 					<h:panelGrid columns="1" style="width:100%">
 						<img src="../images/livres/book.png" />
@@ -59,17 +59,17 @@
 							<img src="../images/livres/book.png" />
 						</f:facet>
 
-						<h:outputText value="Id:" />
-						<h:outputText value="#{mediasController.selectedMedia.id}" />
+						<h:outputText value="Ref:" />
+						<h:outputText value="#{mediasController.selectedMedia.code}" />
 
-						<h:outputText value="Year" />
+						<h:outputText value="Titre" />
 						<h:outputText value="#{mediasController.selectedMedia.titre}" />
 
-						<h:outputText value="Color:" />
-						<h:outputText value="#{mediasController.selectedMedia.titre}" />
+						<h:outputText value="Editeur:" />
+						<h:outputText value="#{mediasController.selectedMedia.livre.editeur}" />
 
-						<h:outputText value="Price" />
-						<h:outputText value="#{mediasController.selectedMedia.titre}" />
+						<h:outputText value="Nombre de pages" />
+						<h:outputText value="#{mediasController.selectedMedia.livre.nbPage}" />
 
 
 					</p:panelGrid>

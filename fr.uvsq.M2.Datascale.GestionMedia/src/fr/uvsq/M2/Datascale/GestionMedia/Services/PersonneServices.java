@@ -12,5 +12,6 @@ public interface PersonneServices {
 	public Personne findById(int id);
 	public List<Personne> findAll();
 	public Personne doLogin(String mail , String pwd);
-
+	public Personne doSignUp(Personne personne);
+	
 }

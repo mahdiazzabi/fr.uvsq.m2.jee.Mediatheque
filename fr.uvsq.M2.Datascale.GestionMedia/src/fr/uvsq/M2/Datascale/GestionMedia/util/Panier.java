@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.uvsq.M2.Datascale.GestionMedia.Model.Media;
+import fr.uvsq.M2.Datascale.GestionMedia.Model.Personne;
 
 public class Panier {
 
-
+	private Personne user ;
 	private ArrayList<Media> medias;
 
 	
@@ -33,4 +34,19 @@ public class Panier {
 	public int sizePanier() {
 		return medias.size();
 	}
+
+	public Personne getUser() {
+		return user;
+	}
+
+	public void setUser(Personne user) {
+		this.user = user;
+	}
+
+	public void setMedias(ArrayList<Media> medias) {
+		this.medias = medias;
+	}
+
+
 }
+

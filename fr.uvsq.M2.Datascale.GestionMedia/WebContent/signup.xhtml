@@ -15,33 +15,30 @@
 
 		<p:growl id="growl" showDetail="true" sticky="true" />
 
-		<p:panel header="Log in">
+		<p:panel header="Inscription">
 			<h:form>
 				<p:messages id="msgs" />
 				<h:panelGrid columns="1" cellpadding="5">
 					<p:outputLabel for="lastname" value="Nom :" />
-					<p:inputText id="lastname" value="#{loginControl.newUser.lastName}"
+					<p:inputText id="lastname" value="#{loginControl.newUser.nom}"
 						required="true">
 					</p:inputText>
 
 					<p:outputLabel for="firstname" value="Prénom :" />
 					<p:inputText id="firstname"
-						value="#{loginControl.newUser.firstName}" required="true">
+						value="#{loginControl.newUser.prenom}" required="true">
 					</p:inputText>
-					<p:outputLabel for="birthdate" value="Date de naissance :" />
-					<p:calendar id="birthdate"
-						value="#{loginControl.newUser.birthDate}" required="true">
-					</p:calendar>
-					<p:outputLabel for="tel" value="Numéro de téléphone :" />
-					<p:inputText id="tel" value="#{loginControl.newUser.tel}"
+					
+					<p:outputLabel for="adresse" value="Adresse :" />
+					<p:inputText id="adresse" value="#{loginControl.newUser.adresse}"
 						required="true">
 					</p:inputText>
-					<p:outputLabel for="mail" value="Adresse email :" />
-					<p:inputText id="mail" value="#{loginControl.newUser.mail}"
+					<p:outputLabel for="mailr" value="Adresse email :" />
+					<p:inputText id="mailr" value="#{loginControl.newUser.email}"
 						required="true">
 					</p:inputText>
-					<p:outputLabel for="pwd" value="Mot de passe :" />
-					<p:password id="pwd" value="#{loginControl.newUser.pwd}"
+					<p:outputLabel for="pwdr" value="Mot de passe :" />
+					<p:password id="pwdr" value="#{loginControl.newUser.password}"
 						required="true">
 					</p:password>
 					

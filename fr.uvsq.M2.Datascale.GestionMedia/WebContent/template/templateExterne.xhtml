@@ -7,22 +7,21 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 	<f:view contentType="text/html">
-	<h:head>
+	<h:head  >
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/css/style.css" />
 
 	</h:head>
-	<h:body>
-	<div id="header">
-			<ui:insert name="header">
-			</ui:insert>
-		</div>
-		
+	<h:body  >
+
+
 
 		<br />
 		<br />
 		<br />
 		<br />
 		<br />
-		<div id="content">
+		<div id="content" style="width:500px; padding:center; marging:auto;">
 			<ui:insert name="content">
 			</ui:insert>
 		</div>
@@ -31,12 +30,12 @@
 		<br />
 		<br />
 		<br />
-		<div id="footer">
+	<!-- 	<div id="footer">
 			<ui:insert name="footer">
 				<ui:include src="/template/footer.xhtml" />
 			</ui:insert>
 		</div>
-	
+	-->
 	</h:body>
 </f:view>
 </html>

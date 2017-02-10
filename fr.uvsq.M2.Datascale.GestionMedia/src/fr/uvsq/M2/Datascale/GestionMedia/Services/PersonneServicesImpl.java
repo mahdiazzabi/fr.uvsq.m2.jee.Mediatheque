@@ -45,4 +45,10 @@ public class PersonneServicesImpl implements PersonneServices{
 		return dao.doLogin(mail, pwd);
 	}
 
+	@Override
+	public Personne doSignUp(Personne personne) {
+		// TODO Auto-generated method stub
+		return dao.doSignUp(personne);
+	}
+
 }

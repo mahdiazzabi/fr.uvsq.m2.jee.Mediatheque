@@ -17,28 +17,24 @@
 				<p:messages id="msgs" />
 				<h:panelGrid columns="1" cellpadding="5">
 					<p:outputLabel for="lastname" value="Nom :" />
-					<p:inputText id="lastname" value="#{loginControl.currentUser.lastName}"
+					<p:inputText id="lastname" value="#{loginControl.currentUser.nom}"
 						required="true">
 					</p:inputText>
 
 					<p:outputLabel for="firstname" value="Prénom :" />
 					<p:inputText id="firstname"
-						value="#{loginControl.currentUser.firstName}" required="true">
+						value="#{loginControl.currentUser.prenom}" required="true">
 					</p:inputText>
-					<p:outputLabel for="birthdate" value="Date de naissance :" />
-					<p:calendar id="birthdate"
-						value="#{loginControl.currentUser.birthDate}" required="true">
-					</p:calendar>
-					<p:outputLabel for="tel" value="Numéro de téléphone :" />
-					<p:inputText id="tel" value="#{loginControl.currentUser.tel}"
+					<p:outputLabel for="tel" value="Adresse :" />
+					<p:inputText id="tel" value="#{loginControl.currentUser.adresse}"
 						required="true">
 					</p:inputText>
 					<p:outputLabel for="mail" value="Adresse email :" />
-					<p:inputText id="mail" value="#{loginControl.currentUser.mail}"
+					<p:inputText id="mail" value="#{loginControl.currentUser.email}"
 						required="true">
 					</p:inputText>
 					<p:outputLabel for="pwd" value="Entrez votre ancien mot de passe :" />
-					<p:password id="pwd" 
+					<p:password id="pwd" value="#{loginControl.currentUser.password}"
 						required="true">
 					</p:password>
 					<p:outputLabel for="pwd2" value="Entrez votre nouveau mot de passe :" />
