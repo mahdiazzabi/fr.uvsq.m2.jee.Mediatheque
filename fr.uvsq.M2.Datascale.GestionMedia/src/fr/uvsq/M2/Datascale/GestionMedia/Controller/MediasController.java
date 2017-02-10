@@ -9,8 +9,14 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
+import fr.uvsq.M2.Datascale.GestionMedia.Model.Disque;
+import fr.uvsq.M2.Datascale.GestionMedia.Model.Livre;
 import fr.uvsq.M2.Datascale.GestionMedia.Model.Media;
 import fr.uvsq.M2.Datascale.GestionMedia.Model.User;
+import fr.uvsq.M2.Datascale.GestionMedia.Services.LivreServices;
+import fr.uvsq.M2.Datascale.GestionMedia.Services.LivreServicesImpl;
+import fr.uvsq.M2.Datascale.GestionMedia.Services.MediaServiceImpl;
+import fr.uvsq.M2.Datascale.GestionMedia.Services.MediaServices;
 import fr.uvsq.M2.Datascale.GestionMedia.util.Panier;
 
 @ManagedBean
@@ -19,35 +25,45 @@ public class MediasController {
 	private Panier panier;
 	private List<Media> list;
 	private Media selectedMedia;
-	private User currentUser ;
+	private User currentUser;
+	private Media newMedia;
+	private Livre newLivre;
+	private Disque newDisque;
+
+	private MediaServices mediaServices = new MediaServiceImpl();
+	private LivreServices livreServices = new LivreServicesImpl();
 	
 	public MediasController() {
 
 		list = new ArrayList<>();
 		panier = new Panier();
 	}
-	public Boolean ControlEmptyPanier(){
-		if (panier.sizePanier()==0 ) {
-			return false ;
+
+	public Boolean ControlEmptyPanier() {
+		if (panier.sizePanier() == 0) {
+			return false;
 		}
-		return true ;
-		
+		return true;
+
 	}
-	public Boolean ControlNotEmptyPanier(){
-		if (panier.sizePanier()==0 ) {
-			return true ;
+
+	public Boolean ControlNotEmptyPanier() {
+		if (panier.sizePanier() == 0) {
+			return true;
 		}
-		return false ;
-		
+		return false;
+
 	}
+
 	public String addMediaToPanier() {
 		this.panier.addMedia(selectedMedia);
 		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Succès",
-				"Media ajouté avec succès ! "));
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Succès", "Media ajouté avec succès ! "));
 		context.getExternalContext().getFlash().setKeepMessages(true);
 		return "/user/index.jsf?faces-redirect=true";
 	}
+
 	public String removeMediaFromPanier() {
 		this.panier.removeMedia(selectedMedia);
 		if (panier.sizePanier() == 0) {
@@ -78,32 +94,14 @@ public class MediasController {
 
 	public List<Media> loadMedias() {
 		// à charger de la bd
-		System.err.println("ok");
-		Media m1 = new Media();
-		m1.setId("1");
-		m1.setTitre("1");
-		Media m2 = new Media();
-		m2.setTitre("2");
-		m2.setId("2");
-		Media m3 = new Media();
-		m3.setTitre("3");
-		m3.setId("3");
-		Media m4 = new Media();
-		m4.setTitre("4");
-		m4.setId("4");
-		Media m5 = new Media();
-		m5.setTitre("444");
-		m5.setId("55");
-		Media m6 = new Media();
-		m6.setTitre("66");
-		m6.setId("6");
-		list.add(m1);
-		list.add(m2);
-		list.add(m3);
-		list.add(m4);
-		list.add(m5);
-		list.add(m6);
+
 		return list;
+	}
+
+	public void addLivre() {
+		mediaServices.insert(newMedia);
+		newLivre.setCode(newMedia.getCode());
+		livreServices.insert(newLivre);
 	}
 
 	public Media getSelectedMedia() {
@@ -130,11 +128,37 @@ public class MediasController {
 	public void setPanier(Panier panier) {
 		this.panier = panier;
 	}
+
 	public User getCurrentUser() {
 		return currentUser;
 	}
+
 	public void setCurrentUser(User currentUser) {
 		this.currentUser = currentUser;
+	}
+
+	public Media getNewMedia() {
+		return newMedia;
+	}
+
+	public void setNewMedia(Media newMedia) {
+		this.newMedia = newMedia;
+	}
+
+	public Livre getNewLivre() {
+		return newLivre;
+	}
+
+	public void setNewLivre(Livre newLivre) {
+		this.newLivre = newLivre;
+	}
+
+	public Disque getNewDisque() {
+		return newDisque;
+	}
+
+	public void setNewDisque(Disque newDisque) {
+		this.newDisque = newDisque;
 	}
 
 }

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/templateAdmin	.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+
+			<p:messages id="messages" showDetail="false" autoUpdate="true"
+				closable="true" />
+		</h:form>
+		<p:separator />
+
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+			<p:dataTable id="basicDT" var="media"
+				value="#{mediaControl.loadMedias()}" rows="6" rowKey="#{media.id}"
+				paginatorPosition="bottom" selectionMode="single" paginator="true"
+				selection="#{mediaControl.selectedMedia}">
+				<p:ajax event="rowSelect" update=":details" />
+				<f:facet name="header">
+	          	Liste des Medias
+	        </f:facet>
+				<p:column headerText="Id">
+					<h:outputText value="#{media.id}" />
+				</p:column>
+				<p:column headerText="Titre">
+					<h:outputText value="#{media.titre}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		<br />
+		<br />
+		<p:panel id="details">
+			<h3>Information Media</h3>
+			<h:panelGrid columns="2">
+				<h:form>
+					<h:panelGrid id="grid" columns="3" style="margin-right:80px">
+						<h:outputLabel value="Id" />
+						<p:inputText id="Id" value="#{mediaControl.selectedMedia.id}"
+							readonly="true" />
+						<p:message for="Id" display="icon" />
+
+						<h:outputLabel for="titre" value="titre" />
+						<p:inputText id="titre" value="#{mediaControl.selectedMedia.titre}"
+							required="true" />
+						<p:message for="titre" />
+						
+
+						<p:commandButton value="Modifier" update=":form:basicDT"
+							rendered="#{not empty mediaControl.selectedMedia}"
+							onclick="if (! confirm('Voulez-vous vraiment modifier ?')) return false"
+							action="#{mediaControl.updateMedia()}" resetValues="true">
+						</p:commandButton>
+						
+						<p:commandButton value="Supprimer" update=":form:basicDT"
+							rendered="#{not empty mediaControl.selectedMedia}"
+							onclick="if (! confirm('Voulez-vous vraiment supprimer ?')) return false"
+							action="#{mediaControl.deleteMedia()}" resetValues="true">
+						</p:commandButton>
+
+						</h:panelGrid>
+				</h:form>
+			</h:panelGrid>
+		</p:panel>
+		<br />
+			<p:panel id="Ajout">
+			<h3>Ajouter un nouveau Livre</h3>
+			<h:form id="Champ">
+				<p:growl id="growl" showDetail="true" />
+				<h:panelGrid columns="2">
+					<h:outputLabel for="reference" value="Référence " />
+					<p:inputText id="reference" value="#{mediasController.newMedia.code}"
+						required="true" />
+					<h:outputLabel for="titre" value="Titre" />
+					<p:inputText id="titre" value="#{mediasController.newMedia.titre}"
+						required="true" />
+					<h:outputLabel for="editeur" value="Editeur" />
+					<p:inputText id="editeur" value="#{mediasController.newMedia.livre.editeur}"
+						required="true" />
+					<h:outputLabel for="nbr" value="Nombre de pages" />
+					<p:inputText id="nbr"
+						value="#{mediasController.newMedia.livre.nbPage}" required="true" />
+
+					
+					<h:outputLabel for="qte" value="Nombre d'exemplaire" />
+					<p:inputText id="qte"
+						value="#{mediasController.newMedia.stock}" required="true" />
+
+					<p:commandButton id="dd" value="Ajouter" update=":form:basicDT"
+						action="#{mediasController.addLivre()}"></p:commandButton>
+				</h:panelGrid>
+			</h:form>
+		</p:panel>
+		
+		
+	</ui:define>
+</ui:composition>
+</html>

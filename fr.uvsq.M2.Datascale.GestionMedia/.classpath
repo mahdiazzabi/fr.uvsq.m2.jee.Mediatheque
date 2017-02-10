@@ -28,5 +28,35 @@
 	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/javassist.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/javax.ejb-3.1.2.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jta.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/javax.ejb-3.1.2.2.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/log4j-1.2.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/asm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/cglib-2.1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/com.sun.jersey.jersey-server-1.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/commons-pool.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/ha-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jboss-archive-browsing.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jersey-client.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jersey-client-1.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jersey-core-1.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jersey-json-1.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jersey-server-1.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/jersey-servlet-1.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/lucene-core-2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/commons-logging-1.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/javax.persistence_2.0.3.v201010191057.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Downloads/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mehdi/Desktop/M2 DataScale/jars/com.springsource.net.sf.cglib-2.2.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
